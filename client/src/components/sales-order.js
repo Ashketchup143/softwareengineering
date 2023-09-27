@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Link, Route, Routes} from "react-router-dom";
+import Sidebar from './sidebar';
 
 function SalesOrdering(){
 
@@ -108,19 +109,7 @@ return(
 
       <div class="bg-gray-500">
         <div class="flex">
-            <div class="bg-white h-screen p-5 pt-10 bl-none rounded-r-lg">
-                <div class="rounded-full border-2 bg-emerald-500 h-20 w-20 mb-20 ml-5 mt-10 border-white"></div> 
-                <button class="rounded-lg pr-5 pt-2 pb-2 pl-5  delay-150 border-emerald-500 border-2 duration-50">
-                    <b>Employees</b> </button>
-                <br/> <Link to = "/inventory"> <button class="mt-6  rounded-lg pr-6 pt-2 pb-2 pl-6 delay-150 bg-white border-emerald-500 border-2  duration-50">
-               <b>Inventory</b> </button> </Link>  <br/>
-
-                <br/><button class="  rounded-lg pr-6 pt-2 pb-2 pl-6 delay-150 bg-white border-emerald-500 border-2 duration-50">
-                    <b>Customer</b> </button><br/>
-                <br/> <Link to = "/"> <button class="rounded-lg pr-10 pt-2 pb-2 pl-10 delay-150 bg-white border-emerald-500 border-2 duration-50">
-                    <b> Sales</b> </button> </Link>  
-                    <br/>     
-            </div>
+            <Sidebar/>
             <div class="ml-[350px] bg-white m-[50px] h-[600px] w-[600px] rounded-lg mt-[25px]">
                 <h1 class="text-center  p-3 mt-5 bg-white"><b>SALES ORDER <div class="mt-[20px] rounded-lg bg-emerald-400 h-[1px]"></div></b></h1>
                 <h1 class="">Customer Name:
