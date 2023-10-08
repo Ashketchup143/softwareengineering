@@ -7,7 +7,6 @@ function customer(){
         <div class="bg-gray-500">
             <div class="flex">
             <Sidebar/>
-            
             <div class="ml-[350px] mt-[30px] bg-white h-[150px] w-[1000px] rounded-lg">
                 <div class="rounded-full border-2 bg-emerald-500 h-20 w-20 ml-5 mt-5 border-white grid grid-cols-3 grid-rows-3">
                     <div class="ml-[692px] whitespace-nowrap">Gender: Male</div>

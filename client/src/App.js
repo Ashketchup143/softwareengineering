@@ -1,4 +1,4 @@
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Navigate } from 'react-router-dom';
 import {Link, Route, Routes} from "react-router-dom";
 import './App.css';
 import Products from './components/products'
@@ -6,6 +6,13 @@ import SalesOrdering from './components/sales-order'
 import Customer from './components/customer';
 import Inventory from './components/inventory';
 import React, {useState, useEffect} from 'react';
+import LandingPage from './components/landingpage';
+import LoginCustomer from './components/logincus';
+import LoginEmployee from './components/loginemp';
+import RegisterEmployee from './components/regemp';
+import Customerex from './components/customerex';
+import RegisterCustomer from './components/regcus';
+import SalesOrdering1 from './components/salesordering';
 <script src="https://cdn.tailwindcss.com"></script>
 function App() {
 
@@ -27,7 +34,9 @@ function App() {
    
   }
 
-  {/*
+  { 
+     
+    /*
       <form onSubmit = {handleSubmit}>
         <div> Class A: </div> <input class = "text-black" value = {classA} onChange ={handleInputChangeA}/> 
         <div> Class B:</div> <input class = "text-black" value = {classB} onChange ={handleInputChangeB}/>
@@ -44,16 +53,34 @@ function App() {
 
 <BrowserRouter>
     <Routes>
-     
       <Route path = "/products" element = {<Products></Products>}></Route>
       <Route path = "/sales" element = {<SalesOrdering></SalesOrdering>}></Route>
       <Route path = "/customer" element = {<Customer></Customer>}></Route>
       <Route path = "/inventory" element = {<Inventory></Inventory>}></Route>
+      <Route path = "/landingpage" element = {<LandingPage></LandingPage>}></Route>
+      <Route path='/logincus' element={<LoginCustomer></LoginCustomer>}></Route>
+      <Route path='/loginemp' element={<LoginEmployee></LoginEmployee>}></Route>
+      <Route path= "/customerex" element = {<Customerex></Customerex>}></Route>
+      <Route path='/regcus' element={<RegisterCustomer></RegisterCustomer>}></Route>
+      <Route path='/regemp' element={<RegisterEmployee></RegisterEmployee>}></Route>
+      <Route path='/salesordering' element={<SalesOrdering1></SalesOrdering1>}></Route>
     </Routes>
 
 
-  
-   {/* 
+
+   {
+   <div>HAtdog <Link to="/landingpage">
+   <button className="mt-6 rounded-lg pr-6 pt-2 pb-2 pl-6 delay-150 bg-gray-200 border-emerald-500 border-2 duration-50">
+     Home <b>Inventory</b>
+   </button>
+ </Link>
+ <Link to="/salesordering">
+   <button className="mt-6 rounded-lg pr-6 pt-2 pb-2 pl-6 delay-150 bg-gray-200 border-emerald-500 border-2 duration-50">
+     Login Page <b>Inventory</b>
+   </button>
+ </Link> </div> 
+   
+   /* 
       <div class="bg-gray-500">
         <div class="flex">
             <div class="bg-white h-screen p-5 pt-10 bl-none rounded-r-lg">
