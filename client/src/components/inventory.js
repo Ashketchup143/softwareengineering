@@ -4,11 +4,11 @@ import Sidebar from './sidebar';
 
 function Inventory(){
     return(
-        <div class="bg-gray-500">
+        <div class="bg-gray-500 min-h-screen">
             <div class="flex">
             <Sidebar/>
             
-            <div class="ml-[350px] bg-white m-[50px] h-[620px] w-[600px] rounded-lg mt-[90px] place-content-center">
+            <div class="ml-[400px] bg-white m-[50px] h-[620px] w-[600px] rounded-lg mt-[90px] place-content-center">
                 
                 <div class="grid grid-cols-3">
                     <h1 class="text-center mt-5 bg-white"><b>Class Type </b></h1>

@@ -13,6 +13,9 @@ import RegisterEmployee from './components/regemp';
 import Customerex from './components/customerex';
 import RegisterCustomer from './components/regcus';
 import SalesOrdering1 from './components/salesordering';
+import Employee from './components/employee';
+import EmployeeList from './components/employeelist';
+import SalesTransaction from './components/salestransaction';
 <script src="https://cdn.tailwindcss.com"></script>
 function App() {
 
@@ -64,6 +67,9 @@ function App() {
       <Route path='/regcus' element={<RegisterCustomer></RegisterCustomer>}></Route>
       <Route path='/regemp' element={<RegisterEmployee></RegisterEmployee>}></Route>
       <Route path='/salesordering' element={<SalesOrdering1></SalesOrdering1>}></Route>
+      <Route path='/employee' element={<Employee></Employee>}></Route>
+      <Route path='/employeelist' element={<EmployeeList></EmployeeList>}></Route>
+      <Route path='/salestransaction' element={<SalesTransaction></SalesTransaction>}></Route>
     </Routes>
 
 
@@ -74,11 +80,18 @@ function App() {
      Home <b>Inventory</b>
    </button>
  </Link>
- <Link to="/salesordering">
+ <Link to="/products">
    <button className="mt-6 rounded-lg pr-6 pt-2 pb-2 pl-6 delay-150 bg-gray-200 border-emerald-500 border-2 duration-50">
      Login Page <b>Inventory</b>
    </button>
- </Link> </div> 
+ </Link> 
+ <Link to="/inventory">
+   <button className="mt-6 rounded-lg pr-6 pt-2 pb-2 pl-6 delay-150 bg-gray-200 border-emerald-500 border-2 duration-50">
+     Login Page <b>Inventory</b>
+   </button>
+ </Link>
+ </div> 
+ 
    
    /* 
       <div class="bg-gray-500">
