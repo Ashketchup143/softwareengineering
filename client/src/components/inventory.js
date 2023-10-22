@@ -3,35 +3,86 @@ import {Link, Route, Routes} from "react-router-dom";
 import Sidebar from './sidebar';
 
 function Inventory(){
-    return(
-        <div class="bg-gray-500 min-h-screen">
-            <div class="flex">
-            <Sidebar/>
-            
-            <div class="ml-[400px] bg-white m-[50px] h-[620px] w-[600px] rounded-lg mt-[90px] place-content-center">
-                
-                <div class="grid grid-cols-3">
-                    <h1 class="text-center mt-5 bg-white"><b>Class Type </b></h1>
-                    <h1 class="text-center mt-5 bg-white"><b>Quantity </b></h1>
-                    <h1 class="text-center mt-5 bg-white"><b>Price </b></h1>
-                </div>
-                <div class="mt-[20px] ml-[20px] w-[550px] rounded-lg bg-emerald-400 h-[1px]"></div>
-                <div class="pl-5 rounded-lg bg-white h-[350px] p-5">
-                    <div class="grid grid-cols-2 grid-rows-3">
-                        <p class=" ml-[25px] p-5">Class A</p><div class="h-6 pt-5 pb-5">0kg</div>
-                        <p class=" ml-[25px] p-5">Class B</p><div class="h-6 pt-5 pb-5">0kg</div>
-                        <p class=" ml-[25px] p-5">Class C</p><div class="h-6 pt-5 pb-5">0kg</div>
-                        <p class=" ml-[25px] p-5">Rejected</p><div class="h-6 pt-5 pb-5">0kg</div>
+     return (
+        <div className="bg-gray-500 min-h-screen">
+            <div className="flex">
+                <Sidebar />
+                <div className="ml-[650px] bg-white m-[50px] w-[600px] h-[700px] rounded-lg mt-[125px] place-content-center">
+                    <div className="flex">
+                        <div className="text-center mt-5 bg-white flex-1">
+                            <b>Class Type</b>
+                        </div>
+                        <div className="text-center mt-5 bg-white flex-1">
+                            <b>Quantity</b>
+                        </div>
+                        <div className="text-center mt-5 bg-white flex-1">
+                            <b>Price</b>
+                        </div>
                     </div>
-                    <div class="grid grid-cols-2 grid-rows-1 mt-[100px] rounded-lg bg-emerald-400 h-[1px] gap-1">
-                        <p class="mt-7 ml-[50px] "><b>Total</b><p class="mt-7 ">0 kg</p></p>
-                    </div>
-                </div>
-                <button onclick="togglePopup()" class="delay-150 bg-white border-emerald-500 ml-[400px] border-2 place-content-center p-1 h-9 w-[160px] mt-[150px] rounded-lg">Add Inventory</button>
-            </div>
 
+                    <div className="mt-[20px] ml-[20px] w-[550px] rounded-lg bg-emerald-400 h-[1px]"></div>
+
+                    <div className='w-[550px] h-[400px]'>
+                        <div className="flex mt-4">
+                            <div className="text-center mt-5 ml-[55px]">
+                                Class A
+                            </div>
+                            <div className="text-center mt-5 ml-[175px]">
+                                0kg
+                            </div>
+                            <div className=" mt-5 ml-[150px]">
+                                php56/kg
+                            </div>
+                        </div>
+
+                        <div className="flex mt-4">
+                            <div className="text-center mt-5 ml-[55px]">
+                                Class A
+                            </div>
+                            <div className="text-center mt-5 ml-[175px]">
+                                0kg
+                            </div>
+                            <div className=" mt-5 ml-[150px]">
+                                php56/kg
+                            </div>
+                        </div>
+
+                        <div className="flex mt-4">
+                            <div className="text-center mt-5 ml-[55px]">
+                                Class A
+                            </div>
+                            <div className="text-center mt-5 ml-[175px]">
+                                0kg
+                            </div>
+                            <div className=" mt-5 ml-[150px]">
+                                php56/kg
+                            </div>
+                        </div>
+
+                    </div>
+                    
+
+                        
+                    
+
+                    <div className="mt-[20px] ml-[20px] w-[550px] rounded-lg bg-emerald-400 h-[1px]"></div>
+                    <div className="flex">
+                        <div className='flex-col ml-14'>
+                            <div className="text-center mt-5 bg-white">
+                            <b>Total Weight</b>
+                            </div>
+                            <div className='mt-5'>0kg</div>
+                        </div>
+                        
+
+                        <button className="delay-150 bg-white border-emerald-500 ml-24 mt-16 border-2 place-content-center p-1 h-9 w-[150px] rounded-lg">Add Inventory</button>
+                        
+                    </div>
+                    
+                    
+                </div>
+            </div>
         </div>
-        </div>
-    )
+    );
 };
 export default Inventory;

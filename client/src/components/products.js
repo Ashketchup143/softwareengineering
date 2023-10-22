@@ -1,42 +1,96 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import {Link, Route, Routes} from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import Sidebar from './sidebar';
 
-
-
-
-function Products(){
+function Products() {
     return (
-        <div class="bg-gray-500 min-h-screen">
-        <div class="flex">
-            <Sidebar/>
-            <div class="ml-[650px] bg-white m-[50px] w-[600px] rounded-lg mt-[125px] place-content-center">
-                <div class="grid grid-cols-3">
-                    <h1 class="text-center mt-5 bg-white"><b>Class Type </b></h1>
-                    <h1 class="text-center mt-5 bg-white"><b>Quantity </b></h1>
-                    <h1 class="text-center mt-5 bg-white"><b>Price </b></h1>
-                </div>
-                <div class="mt-[20px] ml-[20px] w-[550px] rounded-lg bg-emerald-400 h-[1px]"></div>
-                <div class="pl-5 rounded-lg bg-white h-[350px] p-5">
-                    <div class="grid grid-cols-3 grid-rows-3">
-                        <p class=" p-5">Class A</p><div class="h-6 pt-5 pb-5">0kg</div><div class="h-6 pt-5 pb-5"><input class="ml-6 rounded-lg bg-teal-500 h-6 w-[80px]"></input></div>
-                        <p class=" p-5">Class B</p><div class="h-6 pt-5 pb-5">0kg</div><div class="h-6 pt-5 pb-5"><input class="ml-6 rounded-lg bg-teal-500 h-6 w-[80px]"></input></div>
-                        <p class=" p-5">Class C</p><div class="h-6 pt-5 pb-5">0kg</div><div class="h-6 pt-5 pb-5"><input class="ml-6 rounded-lg bg-teal-500 h-6 w-[80px]"></input></div>
-                        <p class=" p-5">Rejected</p><div class="h-6 pt-5 pb-5">0kg</div><div class="h-6 pt-5 pb-5"><input class="ml-6 rounded-lg bg-teal-500 h-6 w-[80px]"></input></div> 
+        <div className="bg-gray-500 min-h-screen">
+            <div className="flex">
+                <Sidebar />
+                <div className="ml-[650px] bg-white m-[50px] w-[600px] h-[700px] rounded-lg mt-[125px] place-content-center">
+                    <div className="flex">
+                        <div className="text-center mt-5 bg-white flex-1">
+                            <b>Class Type</b>
+                        </div>
+                        <div className="text-center mt-5 bg-white flex-1">
+                            <b>Quantity</b>
+                        </div>
+                        <div className="text-center mt-5 bg-white flex-1">
+                            <b>Price</b>
+                        </div>
                     </div>
-                    <button class="delay-150 bg-white border-emerald-500 border-2 ml-96 rounded-lg p-1 mt-3" >+ Add product </button>
-                    <div class="grid grid-cols-2 grid-rows-1 mt-[100px] rounded-lg bg-emerald-400 h-[1px] gap-1">
-                        <p class="mt-7 ml-[1px] "><b>Total Weight</b><p class="mt-7 ">0 kg</p></p>
-                        <p class="mt-7 ml-[1px] "><b>Total Price</b><p class="mt-7 ">0 kg</p></p>
+
+                    <div className="mt-[20px] ml-[20px] w-[550px] rounded-lg bg-emerald-400 h-[1px]"></div>
+
+                    <div className='w-[550px] h-[400px]'>
+                        <div className="flex mt-4">
+                            <div className="text-center mt-5 flex-1">
+                                Class A
+                            </div>
+                            <div className="text-center mt-5 flex-1">
+                                0kg
+                            </div>
+                            <div className=" mt-5 flex-1">
+                                <input className="ml-6 rounded-lg bg-teal-500 h-6 w-[80px]"></input>
+                            </div>
+                        </div>
+
+                        <div className="flex mt-4">
+                        <div className="text-center mt-5 flex-1">
+                            Class B
+                        </div>
+                        <div className="text-center mt-5 flex-1">
+                            0kg
+                        </div>
+                        <div className="text-center mt-5 flex-1">
+                            <input className="ml-6 rounded-lg bg-teal-500 h-6 w-[80px]"></input>
+                        </div>
+                        </div>
+
+                        <div className="flex mt-4">
+                        <div className="text-center mt-5 flex-1">
+                            Class C
+                        </div>
+                        <div className="text-center mt-5 flex-1">
+                            0kg
+                        </div>
+                        <div className="text-center mt-5 flex-1">
+                            <input className="ml-6 rounded-lg bg-teal-500 h-6 w-[80px]"></input>
+                        </div>
+                        </div>
+
+                        <button className="delay-150 bg-white border-emerald-500 border-2 ml-96 rounded-lg p-1 mt-7">+ Add product</button>
                     </div>
+                    
+
+                        
+                    
+
+                    <div className="mt-[20px] ml-[20px] w-[550px] rounded-lg bg-emerald-400 h-[1px]"></div>
+                    <div className="flex">
+                        <div className='flex-col ml-14'>
+                            <div className="text-center mt-5 bg-white">
+                            <b>Total Weight</b>
+                            </div>
+                            <div className='mt-5'>0kg</div>
+                        </div>
+                        <div className='flex-col ml-24'>
+                            <div className="text-center mt-5 bg-white">
+                            <b>Total Price</b>
+                            </div>
+                            <div className='mt-5'>Php 50000</div>
+                        </div>
+
+                        <button className="delay-150 bg-white border-emerald-500 ml-24 mt-16 border-2 place-content-center p-1 h-9 w-[80px] rounded-lg">Submit</button>
+                        
+                    </div>
+                    
+                    
                 </div>
-                <button class="delay-150 bg-white border-emerald-500 ml-[480px] border-2 place-content-center p-1 h-9 w-[80px] mt-[175px] mb-11 rounded-lg">Submit</button>
             </div>
         </div>
-    </div>
-
-
-    )
+    );
 }
+
 export default Products;
