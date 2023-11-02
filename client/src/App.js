@@ -16,6 +16,7 @@ import SalesOrdering1 from './components/salesordering';
 import Employee from './components/employee';
 import EmployeeList from './components/employeelist';
 import SalesTransaction from './components/salestransaction';
+import CustomerList from './components/customerlist';
 <script src="https://cdn.tailwindcss.com"></script>
 function App() {
 
@@ -70,6 +71,7 @@ function App() {
       <Route path='/employee' element={<Employee></Employee>}></Route>
       <Route path='/employeelist' element={<EmployeeList></EmployeeList>}></Route>
       <Route path='/salestransaction' element={<SalesTransaction></SalesTransaction>}></Route>
+      <Route path='/customerlist' element={<CustomerList></CustomerList>}></Route>
     </Routes>
 
 
@@ -85,7 +87,7 @@ function App() {
      Login Page <b>Inventory</b>
    </button>
  </Link> 
- <Link to="/inventory">
+ <Link to="/customerlist">
    <button className="mt-6 rounded-lg pr-6 pt-2 pb-2 pl-6 delay-150 bg-gray-200 border-emerald-500 border-2 duration-50">
      Login Page <b>Inventory</b>
    </button>
