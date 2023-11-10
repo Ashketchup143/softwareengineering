@@ -1,73 +1,89 @@
 import React from 'react';
-import {Link, Route, Routes} from "react-router-dom";
+import { Link } from 'react-router-dom';
 import Sidebar from './sidebar';
+import { Icon } from '@iconify/react';
 
-function customer(){
-    return(
-        <div class="bg-gray-500 w-screen min-h-screen">
-    <div class="flex flex-col">
-        <Sidebar/>
-        
-        <div class="bg-white h-[150px] w-[1000px] rounded-lg mt-[80px] ml-[475px]">
-            <div class="flex">
-                <div class="rounded-full border-2 bg-emerald-500 h-20 w-20 ml-5 mt-5 border-white"></div>
-                <div class="flex-col ml-[100px] mt-4 w-[150px] text-left">
-                    <div class=""><b>Aaron Macias</b></div>
-                    <div class="">Customer</div>
-                </div>
-                <div class="flex-col ml-[100px] w-[150px] text-left mt-3 whitespace-nowrap">
-                    <div class="">Cust ID: C00001</div>
-                    <div class="">Fax: +1 (xxx) xxx-xxx</div>
-                    <div class=" ">Phone No: 09123098472</div>
-                </div>
-                <div class="flex-col ml-[100px] w-[150px] text-left mt-3 whitespace-nowrap">
-                    <div>Gender: Male</div>
-                    <div class="">Bill Address: Toril, Davao City</div>
-                    <div class="">Ship Address: Toril, Davao City</div>
-                </div>
-                </div>
-            </div>
+function Customer() {
+  return (
+    <div className="w-screen min-h-screen flex">
+      <Sidebar />
+
+      <div className="w-screen min-h-screen flex flex-col ml-[375px] items-start">
+        <div className="flex flex-row mt-[50px]">
+          <input
+            className="bg-[#D9D9D9] h-[30px] w-[225px] rounded-tl-sm rounded-bl-sm min-w-[50px] border-[1.5px] border-black placeholder:text-black"
+            placeholder=" Search"
+          ></input>
+          <button className="h-[30px] w-[40px] border-l-0 bg-[#D9D9D9] rounded-tr-sm rounded-br-sm border-[1.5px] border-black justify-center items-center px-2 hover:bg-[#F3F3F3]">
+            <Icon icon="carbon:search" className="h-5 w-5" />
+          </button>
+        </div>
+
+        <div className="font-bold text-2xl mt-5">Customer</div>
+
+        <div className="bg-[#D9D9D9] h-[150px] w-10/12 border-[1.5px] border-black mt-[20px] font-bold shadow-md rounded-sm">
+          <div className="flex">
+            <div className="rounded-full border-2 bg-white h-[100px] w-[100px] ml-8 mt-5 border-white "></div>
             
-            <div class="bg-white h-[620px] w-[1000px] rounded-lg mt-[50px] ml-[475px]">
-                <div class="flex">
-                    <div class="text-center mt-5 bg-white flex-1"><b>Order ID </b></div>
-                    <div class="text-center mt-5 bg-white flex-1"><b>Date Ordered </b></div>
-                    <div class="text-center mt-5 bg-white flex-1"><b>Class Type </b></div>
-                    <div class="text-center mt-5 bg-white flex-1"><b>Quantity </b></div>
-                    <div class="text-center mt-5 bg-white flex-1"><b>Total </b></div>
-                </div>
-                <div class="mt-[20px] ml-[20px] w-[960px] rounded-lg bg-emerald-400 h-[1px]"></div>
-                <div class="flex">
-                    <div class="text-center mt-5 bg-white flex-1">Ord10000002</div>
-                    <div class="text-center mt-5 bg-white flex-1">11/05/23</div>
-                    <div class="text-center mt-5 bg-white flex-1">Class A, B, C</div>
-                    <div class="text-center mt-5 bg-white flex-1">200 kg</div>
-                    <div class="text-center mt-5 bg-white flex-1">Php 11,700</div>
-                </div>
-                <div class="flex">
-                    <div class="text-center mt-5 bg-white flex-1">Ord10000001</div>
-                    <div class="text-center mt-5 bg-white flex-1">11/05/23</div>
-                    <div class="text-center mt-5 bg-white flex-1">Class A, B, C</div>
-                    <div class="text-center mt-5 bg-white flex-1">200 kg</div>
-                    <div class="text-center mt-5 bg-white flex-1">Php 11,700</div>
-                </div>
-                <div class="pl-5 rounded-lg bg-white h-[350px] p-5">
-                    <div class="flex flex-wrap">
-                        {/* <!-- Your content here --> */}
-                    </div>
-                </div>
+            <div className="flex-col ml-[100px] w-[150px] text-left mt-4 whitespace-nowrap">
+            <div class="">Aaron Macias</div>
+              <div class="">Cust ID: C00001</div>
+              <div class="">Fax: +1 (xxx) xxx-xxx</div>
+              <div class=" ">Phone No: 09123098472</div>
             </div>
+            <div className="flex-col ml-[120px] w-[150px] text-left mt-4 whitespace-nowrap">
+              <div>Gender: Male</div>
+              <div class="">Bill Address: Toril, Davao City</div>
+              <div class="">Ship Address: Toril, Davao City</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col w-10/12 shadow-lg mt-5">
+          <div className="flex flex-row bg-[#D9D9D9] border-[1.4px] rounded-t-sm h-16 justify-center items-center font-bold border-black shadow-md">
+            <div className="flex-[0.1]"></div>
+            <div className="flex-1">Order ID</div>
+            <div className="flex-1">Date Ordered</div>
+            <div className="flex-1">Class Type</div>
+            <div className="flex-1">Quantity</div>
+            <div className="flex-1">Total</div>
+          </div>
+
+          <div className='flex flex-col bg-white border-[1.5px] rounded-b-sm border-t-0 h-[450px] items-center border-black max-h-3/4 gap-[30px] overflow-y-auto'>
+          
+            <div className="flex flex-row w-full mt-5">
+              <div className="flex-[0.1]">
+                <Link to="/customer"><button className="ml-4 mt-1 bg-[#F3F3F3] text-black hover:bg-[#3BC4AF] hover:text-white">
+                  <Icon icon="bxs:edit" className="h-5 w-5" />
+                </button></Link>
+              </div>
+              <div className="flex-1">Ord10000002</div>
+              <div className="flex-1">11/05/23</div>
+              <div className="flex-1">Class A, B, C</div>
+              <div className="flex-1">200kg</div>
+              <div className="flex-1">Php 11,700</div>
+            </div>
+          
+            <div className="flex flex-row w-full">
+              <div className="flex-[0.1]">
+                <Link to="/customer"><button className="ml-4 mt-1 bg-[#F3F3F3] text-black hover:bg-[#3BC4AF] hover:text-white">
+                  <Icon icon="bxs:edit" className="h-5 w-5" />
+                </button></Link>
+              </div>
+              <div className="flex-1">Ord10000002</div>
+              <div className="flex-1">11/05/23</div>
+              <div className="flex-1">Class A, B, C</div>
+              <div className="flex-1">200kg</div>
+              <div className="flex-1">Php 11,700</div>
+            </div>
+
+            
+          </div>
+        </div>
         
+      </div>
     </div>
-</div>
-       
-
-
-
-    )
-
-
-
+  );
 }
 
-export default customer;
+export default Customer;
