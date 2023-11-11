@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Sidebar from './sidebar';
 import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
+import Sidebarcus from './sidebarcus';
 
 const modalStyles = {
   modalContainer: {
@@ -31,16 +32,28 @@ const modalStyles = {
 };
 
 const SalesOrdering1 = () => {
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [editedSalesId, setEditedSalesId] = useState('');
+  const [editedCustomerName, setEditedCustomerName] = useState('');
 
-  // // Function to open the modal
-  // const openModal = () => {
-  //   setModalOpen(true);
-  // };
+  const openModal = (salesId, customerName) => {
+    setEditedSalesId(salesId);
+    setEditedCustomerName(customerName);
+    setModalOpen(true);
+  };
 
-  // // Function to close the modal
-  // const closeModal = () => {
-  //   setModalOpen(false);
-  // };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const handleEdit = () => {
+    // Handle the logic for editing here
+    console.log('Editing sales:', editedSalesId, editedCustomerName);
+    // Close the modal after a delay (e.g., 2 seconds)
+    setTimeout(() => {
+      closeModal();
+    }, 2000); // 2000 milliseconds (2 seconds)
+  };
 
   return (
     <div className=" w-screen min-h-screen flex">
@@ -48,22 +61,24 @@ const SalesOrdering1 = () => {
       <div className=' w-screen min-h-screen flex flex-col ml-[375px] items-start'>
         <div className='flex flex-row mt-[100px]'>
           <input
-              className=" bg-[#D9D9D9] h-[30px] w-[225px] rounded-tl-sm rounded-bl-sm min-w-[50px] border-[1.5px] border-black placeholder:text-black"
-              placeholder=" Search"
-            >
-          </input>
-          <button className='h-[30px] w-[40px] border-l-0 bg-[#D9D9D9] rounded-tr-sm rounded-br-sm border-[1.5px] border-black justify-center items-center px-2 hover:bg-[#F3F3F3]'><Icon icon="carbon:search" className='h-5 w-5' /></button>
+            className=" bg-[#D9D9D9] h-[30px] w-[225px] rounded-tl-sm rounded-bl-sm min-w-[50px] border-[1.5px] border-black placeholder:text-black"
+            placeholder=" Search"
+          />
+          <button className='h-[30px] w-[40px] border-l-0 bg-[#D9D9D9] rounded-tr-sm rounded-br-sm border-[1.5px] border-black justify-center items-center px-2 hover:bg-[#F3F3F3]'>
+            <Icon icon="carbon:search" className='h-5 w-5' />
+          </button>
         </div>
         <div className='font-bold text-2xl mt-5'>Sales Ordering</div>
         <div className='flex flex-col w-10/12'>
           <div className='flex justify-end'>
-            <button className='h-[30px] w-[200px] bg-[#D9D9D9] rounded-tr-sm rounded-br-sm border-[1.5px] border-black hover:bg-[#F3F3F3]'>
-              + Create Transaction
-            </button>
+            <Link to="/salestransaction">
+              <button className='h-[30px] w-[200px] bg-[#D9D9D9] rounded-sm border-[1.5px] border-black hover:bg-[#F3F3F3]'>
+                + Create Transaction
+              </button>
+            </Link>
           </div>
         </div>
         <div className='flex flex-col w-10/12 shadow-lg'>
-          
           <div className='flex flex-row bg-[#D9D9D9] border-[1.4px] rounded-t-sm mt-5 h-16 justify-center items-center font-bold border-black shadow-md '>
             <div className='flex-[0.15]'></div>
             <div className='flex-1'>Sales ID</div>
@@ -72,41 +87,34 @@ const SalesOrdering1 = () => {
             <div className='flex-1'>Order Quantity</div>
             <div className='flex-1'>Order Cost</div>
             <div className='flex-1'>Order Status</div>
-
           </div>
           <div className='flex flex-col bg-white border-[1.5px] rounded-b-sm border-t-0 h-[500px] items-center border-black max-h-3/4 gap-[30px] overflow-y-auto'>
             <div className='flex flex-row w-full mt-5'>
-              <div className=''><button className='ml-4 mt-1 bg-[#F3F3F3] text-black  hover:bg-[#3BC4AF] hover:text-white'><Icon icon="bxs:edit" className='h-6 w-6'/></button></div>
+              <div className=''>
+                <button
+                  className='ml-4 mt-1 bg-[#F3F3F3] text-black  hover:bg-[#3BC4AF] hover:text-white'
+                  onClick={() => openModal('Sales001', 'Jose Paciano')}
+                >
+                  <Icon icon="bxs:edit" className='h-6 w-6' />
+                </button>
+              </div>
               <div className='flex-1'>Sales 001123</div>
               <div className='flex-1'>Jose Paciano</div>
               <div className='flex-1'>11/05/23</div>
               <div className='flex-1'>200kg</div>
               <div className='flex-1'>Php 11,700</div>
               <div className='flex-1'>Shipping</div>
-            </div>
-
-            <div className='flex flex-row w-full '>
-              <div className=''><button className='ml-4 mt-1 bg-[#F3F3F3] text-black  hover:bg-[#3BC4AF] hover:text-white'><Icon icon="bxs:edit" className='h-6 w-6'/></button></div>
-              <div className='flex-1'>Sales 001123</div>
-              <div className='flex-1'>John Mariano</div>
-              <div className='flex-1'>09/07/23</div>
-              <div className='flex-1'>200kg</div>
-              <div className='flex-1'>Php 11,700</div>
-              <div className='flex-1'>Delivered</div>
             </div>
 
             <div className='flex flex-row w-full'>
-              <div className=''><button className='ml-4 mt-1 bg-[#F3F3F3] text-black  hover:bg-[#3BC4AF] hover:text-white'><Icon icon="bxs:edit" className='h-6 w-6'/></button></div>
-              <div className='flex-1'>Sales 001123</div>
-              <div className='flex-1'>Jose Paciano</div>
-              <div className='flex-1'>11/05/23</div>
-              <div className='flex-1'>200kg</div>
-              <div className='flex-1'>Php 11,700</div>
-              <div className='flex-1'>Shipping</div>
-            </div>
-
-            <div className='flex flex-row w-full '>
-              <div className=''><button className='ml-4 mt-1 bg-[#F3F3F3] text-black  hover:bg-[#3BC4AF] hover:text-white'><Icon icon="bxs:edit" className='h-6 w-6'/></button></div>
+              <div className=''>
+                <button
+                  className='ml-4 mt-1 bg-[#F3F3F3] text-black  hover:bg-[#3BC4AF] hover:text-white'
+                  onClick={() => openModal('Sales 001123', 'John Mariano')}
+                >
+                  <Icon icon="bxs:edit" className='h-6 w-6' />
+                </button>
+              </div>
               <div className='flex-1'>Sales 001123</div>
               <div className='flex-1'>John Mariano</div>
               <div className='flex-1'>09/07/23</div>
@@ -114,12 +122,57 @@ const SalesOrdering1 = () => {
               <div className='flex-1'>Php 11,700</div>
               <div className='flex-1'>Delivered</div>
             </div>
-
+            {/* Add similar rows for other sales entries */}
           </div>
         </div>
       </div>
+
+
+      {isModalOpen && (
+        <div style={modalStyles.modalContainer}>
+          <div style={modalStyles.modal}>
+            <div style={modalStyles.modalContent}>
+              <div className="text-center text-xl font-bold mb-9">Edit Sales</div>
+              <div className="flex flex-col gap-6" style={{ justifyContent: 'flex-end' }}>
+                {/* Add input fields for editing */}
+                <h2 className="flex-1 flex ml-10">
+                  <b className="flex-1">Sales ID: </b>
+                  <div className="flex-1">{editedSalesId}</div>
+                </h2>
+                <h2 className="flex-1 flex ml-10">
+                  <b>Customer Name: </b>
+                  <div className="flex-1 ">
+                    <input
+                      value={editedCustomerName}
+                      onChange={(event) => setEditedCustomerName(event.target.value)}
+                      className="rounded-lg bg-teal-500 h-6 w-[105px] ml-[80px]"
+                    />
+                  </div>
+                </h2>
+                {/* Add more input fields for editing */}
+                <div className='flex flex-col items-center gap-6 mt-[50px]'>
+                  <button
+                    onClick={handleEdit}
+                    className="delay-150 bg-[#D9D9D9] w-[75px] rounded-tr-sm rounded-br-sm border-[1.5px] border-black hover:bg-[#F3F3F3] place-content-end"
+                  >
+                    Submit
+                  </button>
+                  <button
+                    onClick={closeModal}
+                    className="delay-150 bg-[#D9D9D9] w-[75px] rounded-tr-sm rounded-br-sm border-[1.5px] border-black hover:bg-[#F3F3F3] place-content-end"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
 export default SalesOrdering1;
+
+

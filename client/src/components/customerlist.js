@@ -20,9 +20,9 @@ const EmployeeList = () => {
         <div className="font-bold text-2xl mt-5">Customer List</div>
         <div className="flex flex-col w-10/12 mt-5">
           <div className="flex justify-end">
-            <button className="h-[30px] w-[200px] bg-[#D9D9D9] rounded-tr-sm rounded-br-sm border-[1.5px] border-black hover:bg-[#F3F3F3]">
+            <Link to="/verifycustomers"><button className="h-[30px] w-[200px] bg-[#D9D9D9] rounded-sm border-[1.5px] border-black hover:bg-[#F3F3F3]">
               + Verify Customers
-            </button>
+            </button></Link>
           </div>
         </div>
         <div className="flex flex-col w-10/12 shadow-lg mt-5">

@@ -19,6 +19,7 @@ import SalesTransaction from './components/salestransaction';
 import CustomerList from './components/customerlist';
 import Repack from './components/repack';
 import SacksInventory from './components/Sacksinventory';
+import VerifyCustomerlist from './components/VerifyCustomerlist';
 <script src="https://cdn.tailwindcss.com"></script>
 function App() {
 
@@ -76,6 +77,7 @@ function App() {
       <Route path='/customerlist' element={<CustomerList></CustomerList>}></Route>
       <Route path='/repack' element={<Repack></Repack>}></Route>
       <Route path='/sacksinventory' element={<SacksInventory></SacksInventory>}></Route>
+      <Route path='/verifycustomers' element={<VerifyCustomerlist></VerifyCustomerlist>}></Route>
     </Routes>
 
 
