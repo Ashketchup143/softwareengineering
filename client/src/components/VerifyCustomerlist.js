@@ -19,11 +19,6 @@ const VerifyCustomerlist = () => {
             </div>
             <div className="font-bold text-2xl mt-5">Verify Customers</div>
             <div className="flex flex-col w-10/12 mt-5">
-              <div className="flex justify-end">
-                <button className="h-[30px] w-[200px] bg-[#D9D9D9] rounded-sm border-[1.5px] border-black hover:bg-[#F3F3F3]">
-                  + Verify Customers
-                </button>
-              </div>
             </div>
             <div className="flex flex-col w-10/12 shadow-lg mt-5">
               <div className="flex flex-row bg-[#D9D9D9] border-[1.4px] rounded-t-sm h-16 justify-center items-center font-bold border-black shadow-md">
