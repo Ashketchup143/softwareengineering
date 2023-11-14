@@ -11,11 +11,14 @@ function Sidebar() {
   
   return (
     <div className=' flex-col bg-[#303535] items-center flex w-[250px] h-screen fixed rounded'>
+       <div className='flex items-start w-10/12 mt-4'>
+        <Icon icon="material-symbols:logout" className='h-[35px] w-[35px] text-white' />
+      </div>
       <div className='pt-1 w-10/12'>
         <img
           src={logo}
           alt="Shegels Logo"
-          className="object-fill h-full w-full px-8 pt-10"
+          className="object-fill h-full w-full px-8 pt-9"
         />
       </div>
       <div className="rounded-full border-2 bg-white h-40 w-40 min-h-40 mb-8 mt-10 border-white"></div>
