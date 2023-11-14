@@ -11,6 +11,9 @@ function Sidebarcus() {
   
   return (
     <div className=' flex-col bg-[#303535] items-center flex w-[250px] h-screen fixed rounded'>
+      <div className='flex items-start w-10/12 mt-4'>
+        <Icon icon="material-symbols:logout" className='h-[35px] w-[35px] text-white' />
+      </div>
       <div className='pt-1 w-10/12'>
         <img
           src={logo}
@@ -34,7 +37,7 @@ function Sidebarcus() {
       <div className='w-full'>
         <NavLink to="/customer" activeClassName="active-link">
           <button className="delay-150 w-10/12 hover:bg-[#3BC4AF] h-[70px] text-white rounded-sm">
-            <div className='flex flex-row place-items-center pl-11'><Icon icon="material-symbols-light:inventory"  className='h-[40px] w-[35px] mr-4' /><b>Customer</b></div>
+            <div className='flex flex-row place-items-center pl-11'><Icon icon="material-symbols-light:inventory"  className='h-[40px] w-[35px] mr-4' /><b>Profile</b></div>
           </button>
         </NavLink>
       </div>
