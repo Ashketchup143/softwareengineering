@@ -2,6 +2,7 @@ import React from 'react';
 import Sidebar from './sidebar';
 import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
+import ImageUploader from './imageupload';
 
 const VerifyCustomerlist = () => {
     return (
@@ -54,8 +55,9 @@ const VerifyCustomerlist = () => {
                 <div className="flex-1">Davao Fastfood</div>
                 <div className="flex-1">11/05/23</div>
               </div>
-    
+              <ImageUploader></ImageUploader>
               </div>
+              
               {/* Additional employee entries can be added as needed */}
             </div>
           </div>

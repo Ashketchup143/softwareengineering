@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import Sidebar from './sidebar';
+import Sidebarcus from './sidebarcus';
+import React, {useState, useEffect} from 'react';
+import {Link, Route, Routes} from "react-router-dom";
+import { BrowserRouter } from 'react-router-dom';
+
 
 const modalStyles = {
   modalContainer: {
@@ -22,7 +25,7 @@ const modalStyles = {
     borderRadius: '5px',
     padding: '20px',
     width: '500px',
-    height: '400px',
+    height: '360px',
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
   },
   modalContent: {
@@ -31,13 +34,108 @@ const modalStyles = {
 };
 
 function Products() {
+
+//from here
+  const [product, setProduct] = useState([]);
+    const [type, setType] = useState([]);
+    const [quantity, setQuantity] = useState([]);
+    const [price, setPrice] = useState([]);
+    const [measure, setMeasure] = useState([])
+
+    const [inputValues, setInputValues] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:4000/products')
+        .then(res => {return res.json()})
+        .then(data => {
+            setProduct(data)
+            setType(data.map((row) => row.class));
+            setPrice(data.map((row) => row.price));
+            setQuantity(data.map((row) => row.total_quantity));
+            setMeasure(data.map((row) => row.measurement_type))
+
+            const newArray = [...data.map((row) => row.price)];
+            
+            setInputValues(newArray);
+            
+        })
+    }, [])
+
+            const [isEditing, setIsEditing] = useState(false);
+            const [text1, setText1] = useState('Enter Class Type');
+            const [text2, setText2] = useState('');
+            const [text3, setText3] = useState('');
+            const [text4, setText4] = useState('');
+        
+            const handleEditClick = () => {
+            setIsEditing(true);
+            };
+        
+            const handleSaveClick = () => {
+                // Check if the input values are valid numbers
+                if (
+                  isNaN(parseFloat(text2)) ||
+                  isNaN(parseFloat(text4))
+                ) {
+                  alert('Please enter valid numbers for Quantity and Price.');
+                  return;
+                }
+            setIsEditing(false);
+            };
+    
+
+    const handleSubmit = (event) =>{
+        let tester = window.confirm("Try to press")
+        //create confirmation modal of sales order
+        if(tester == true){
+          event.preventDefault();
+          console.log("submitted");
+          const url = 'http://localhost:4000/products';
+          fetch(url, {
+              method: 'POST',
+              headers: {
+              'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({prices: inputValues})
+          })
+          .then(response => response.json())
+          .catch(error => console.error(error))
+          }
+      }
+
+    const handleInputChange = (index, newValue) => {
+        const updatedValues = [...inputValues];
+        updatedValues[index] = newValue;
+        setInputValues(updatedValues);
+    }
+  //to here
+    
+
+
+  
   const [isModalOpen, setModalOpen] = useState(false);
   const [isCreateModalOpen, setCreateModalOpen] = useState(false);
   const [editedBatchId, setEditedBatchId] = useState('');
   const [editedClassType, setEditedClassType] = useState('');
-  const [quantity, setQuantity] = useState('');
   const [measurementType, setMeasurementType] = useState('');
-  const [price, setPrice] = useState('');
+
+  useEffect(() => {
+    fetch('http://localhost:4000/products')
+    .then(res => {return res.json()})
+    .then(data => {
+        setProduct(data)
+        setType(data.map((row) => row.class));
+        setPrice(data.map((row) => row.price));
+        setQuantity(data.map((row) => row.total_quantity));
+        setMeasure(data.map((row) => row.measurement_type))
+  
+        const newArray = [...data.map((row) => row.price)];
+        
+        setInputValues(newArray);
+        
+    })
+  }, [])
+  
 
   const openModal = (batchId, classType, quantity, measurementType, price) => {
     setEditedBatchId(batchId);
@@ -48,6 +146,24 @@ function Products() {
     setModalOpen(true);
   };
 
+    useEffect(() => {
+        fetch('http://localhost:4000/products')
+        .then(res => {return res.json()})
+        .then(data => {
+            setProduct(data)
+            setType(data.map((row) => row.class));
+            setPrice(data.map((row) => row.price));
+            setQuantity(data.map((row) => row.total_quantity));
+            setMeasure(data.map((row) => row.measurement_type))
+
+            const newArray = [...data.map((row) => row.price)];
+            
+            setInputValues(newArray);
+            
+        })
+    }, [])
+  
+      
   const openCreateModal = () => {
     setQuantity('');
     setMeasurementType('');
@@ -79,7 +195,7 @@ function Products() {
 
   return (
     <div className="w-screen min-h-screen flex">
-      <Sidebar />
+      <Sidebarcus />
       <div className="w-screen min-h-screen flex flex-col ml-[375px] items-start">
         <div className="flex flex-row mt-[100px]">
           <input
@@ -193,7 +309,6 @@ function Products() {
             <div style={modalStyles.modalContent}>
               <div className="text-center text-xl font-bold mb-9">Edit Product</div>
               <div className="flex flex-col gap-6" style={{ justifyContent: 'flex-end' }}>
-            
                   <h2 className="flex-1 flex ml-10">
                     <b>Quantity: </b>
                     <div className="flex-1">
@@ -252,13 +367,24 @@ function Products() {
               <div style={modalStyles.modalContent}>
                 <div className="text-center text-xl font-bold mb-9">Create Product</div>
                 <div className="flex flex-col gap-6" style={{ justifyContent: 'flex-end' }}>
+                  {/*HERE*/}
+                {isEditing ? (
+                  <>
                   <h2 className="flex-1 flex ml-10">
                     <b>Quantity: </b>
                     <div className="flex-1">
                       <input
-                        value={quantity}
-                        onChange={(event) => setQuantity(event.target.value)}
-                        className="ml-[140px] rounded-lg bg-teal-500 h-6 w-[105px]"
+                        type="number"
+                        value={text2}
+                        onChange={(e) => {
+                          const newValue = e.target.value;
+                          if (newValue.length <= 8) {
+                            setText2(newValue);
+                          } else {
+                            alert('Quantity cannot be more than 8 characters.');
+                          }
+                        }}
+                        className="ml-[5px] rounded-lg bg-teal-500 h-6 w-[250px]"
                       />
                     </div>
                   </h2>
@@ -266,9 +392,17 @@ function Products() {
                     <b>Measurement Type: </b>
                     <div className="flex-1">
                       <input
-                        value={measurementType}
-                        onChange={(event) => setMeasurementType(event.target.value)}
-                        className="ml-[60px] rounded-lg bg-teal-500 h-6 w-[105px]"
+                        type="text"
+                        value={text3}
+                        onChange={(e) => {
+                          const newValue = e.target.value;
+                          if (newValue.length <= 8) {
+                            setText3(newValue);
+                          } else {
+                            alert('Measurement Type cannot be more than 8 characters.');
+                          }
+                        }}
+                        className="ml-[5px] rounded-lg bg-teal-500 h-6 w-[250px]"
                       />
                     </div>
                   </h2>
@@ -276,12 +410,43 @@ function Products() {
                     <b>Price: </b>
                     <div className="flex-1">
                       <input
-                        value={price}
-                        onChange={(event) => setPrice(event.target.value)}
-                        className="ml-[165px] rounded-lg bg-teal-500 h-6 w-[105px]"
+                        type="number"
+                        value={text4}
+                        onChange={(e) => {
+                          const newValue = e.target.value;
+                          if (newValue.length <= 8) {
+                            setText4(newValue);
+                          } else {
+                            alert('Price cannot be more than 8 characters.');
+                          }
+                        }}
+                        className="ml-[5px] rounded-lg bg-teal-500 h-6 w-[250px]"
                       />
                     </div>
-                  </h2>
+                  </h2>     
+                  </>
+                  ) : (
+                    <>
+                    <div className="flex">
+                          <b class="ml-10">Quantity:  </b>
+                          <p class="ml-[10px]">{text2}</p>
+                    </div>
+                        
+                    <div className="flex">
+                          <b class="ml-10">Measurement Type:</b>
+                          <p class="ml-[10px]">{text3}</p>
+                    </div>
+                    <div className="flex ">
+                          <b class="ml-10">Price:  </b>
+                          <p class="ml-[10px]">{text4}</p>
+                    </div>
+                        
+                    </>
+                  )}
+                </div>
+                <button onClick={handleEditClick} className="ml-[160px] bg-emerald-500 text-white py-2 px-4 mt-2 rounded-lg mb-5">Edit</button>
+                <button onClick={handleSaveClick} className="ml-[10px] bg-emerald-500 text-white py-2 px-4 mt-2 rounded-lg w-[70px] items-center">Save</button>
+                {/*HERE*/}
                   <div className="flex flex-col items-center gap-6">
                     <button
                       onClick={handleCreate}
@@ -299,8 +464,7 @@ function Products() {
                 </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
     </div>
   );
 }
