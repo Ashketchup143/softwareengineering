@@ -3,6 +3,8 @@ import Sidebar from './sidebar';
 import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import Sidebarcus from './sidebarcus';
+import ExcelReader from './excelreader';
+
 
 const modalStyles = {
   modalContainer: {
@@ -32,9 +34,15 @@ const modalStyles = {
 };
 
 const Payroll = () => {
+  const [excelData, setExcelData] = useState(null);
     const [isModalOpen, setModalOpen] = useState(false);
     const [editedSalesId, setEditedSalesId] = useState('');
     const [editedCustomerName, setEditedCustomerName] = useState('');
+
+    const handleDataLoaded = (data) => {
+      // Handle the loaded data, you can set it in the state or perform any other actions
+      setExcelData(data);
+    };
   
     const openModal = (salesId, customerName) => {
       setEditedSalesId(salesId);
@@ -71,11 +79,7 @@ const Payroll = () => {
           <div className='font-bold text-2xl mt-5'>Payroll</div>
           <div className='flex flex-col w-10/12'>
             <div className='flex justify-end'>
-              <Link to="/salestransaction">
-                <button className='h-[30px] w-[200px] bg-[#D9D9D9] rounded-sm border-[1.5px] border-black hover:bg-[#F3F3F3]'>
-                  Input Daily Time Record
-                </button>
-              </Link>
+      <ExcelReader onDataLoaded={handleDataLoaded} />
             </div>
           </div>
           <div className='flex flex-col w-10/12 shadow-lg'>
