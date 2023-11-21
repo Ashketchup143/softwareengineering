@@ -20,6 +20,8 @@ import CustomerList from './components/customerlist';
 import Repack from './components/repack';
 import SacksInventory from './components/Sacksinventory';
 import VerifyCustomerlist from './components/VerifyCustomerlist';
+import Payroll from './components/payroll';
+import EachPayroll from './components/eachpayroll';
 <script src="https://cdn.tailwindcss.com"></script>
 function App() {
 
@@ -78,6 +80,8 @@ function App() {
       <Route path='/repack' element={<Repack></Repack>}></Route>
       <Route path='/sacksinventory' element={<SacksInventory></SacksInventory>}></Route>
       <Route path='/verifycustomers' element={<VerifyCustomerlist></VerifyCustomerlist>}></Route>
+      <Route path='/payroll' element={<Payroll></Payroll>}></Route>
+      <Route path='/eachpayroll' element={<EachPayroll></EachPayroll>}></Route>
     </Routes>
 
 
@@ -93,7 +97,7 @@ function App() {
      Login Page <b>Inventory</b>
    </button>
  </Link> 
- <Link to="/repack">
+ <Link to="/payroll">
    <button className="mt-6 rounded-lg pr-6 pt-2 pb-2 pl-6 delay-150 bg-gray-200 border-emerald-500 border-2 duration-50">
      Login Page <b>Inventory</b>
    </button>
